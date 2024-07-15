@@ -1,39 +1,38 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native';
 
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 
-export default function Home({ navigation, GlobalState }){
+export default function Home({ navigation, GlobalState }) {
     const { toDoList, setToDoList, task, setTask, setChosenTask } = GlobalState;
 
     useEffect(() => {
-        setToDoList(prevState => [...prevState, {id: 2, task: "go to bed"}])
-    }, []);
+        setToDoList(prevState => [...prevState, { id: 2, task: 'go to bed' }])
+    }, [])
 
-    const renderItem = ({item}) => {
+    const renderItem = ({ item }) => {
         return (
-        <TouchableOpacity
-            style={styles.task}
-            onPress={()=>handleChooseTask(item)}
-        >
-
-            <Text>{item.task}</Text>
-        </TouchableOpacity>
-        );
+            <TouchableOpacity
+                style={styles.task}
+                onPress={() => handleChooseTask(item)}
+            >
+                <Text>{item.task}</Text>
+            </TouchableOpacity>
+        ) 
     }
 
     const handleSaveTask = () => {
-        const index = toDoList.length +1;
+        const index = toDoList.length + 1;
 
-        setToDoList(prevState => [...prevState, {id: index, task: task}])
+        setToDoList(prevState => [...prevState, { id: index, task: task }]);
 
         setTask('');
     }
 
     const handleChooseTask = (item) => {
         setChosenTask(item);
-        navigation.navigate("ChosenTask");
+        navigation.navigate('ChosenTask');
     }
 
     return (
@@ -44,13 +43,13 @@ export default function Home({ navigation, GlobalState }){
                     style={styles.input}
                     onChangeText={setTask}
                     value={task}
-                    placeholder='To do task...'
+                    placeholder="To do task..."
                 />
-                <TouchableOpacity
+                <TouchableOpacity 
                     style={styles.button}
                     onPress={() => handleSaveTask()}
                 >
-                    <Text style={styles.buttonText}>Submit</Text>
+                    <Text style={styles.buttonText} >Submit</Text>
                 </TouchableOpacity>
                 <FlatList 
                     data={toDoList}
@@ -58,9 +57,9 @@ export default function Home({ navigation, GlobalState }){
                     keyExtractor={item => item.id}
                 />
             </View>
-            <Footer navigation={navigation}/>
+            <Footer navigation={navigation} />
         </View>
-    );
+    )
 }
 
 const styles = StyleSheet.create({
@@ -70,51 +69,62 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    body:{
+    body: {
         flex: 8,
-        width: '100%'
+        width: '100%',
+        backgroundColor: '#14141410'
     },
-    task:{
+    task: {
+        backgroundColor: 'white',
         padding: 10,
         margin: 10,
+        borderRadius: 12,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
             height: 2,
         },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-
-        elevation: 1
-    },    
-    input:{
-        padding: 10,
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+        elevation: 4,
+    },
+    input: {
+        backgroundColor: 'white',
+        padding: 15,
+        paddingTop: 10,
+        paddingBottom: 10,
         margin: 10,
+        marginTop: 30,
+        borderRadius: 12,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
             height: 2,
         },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-
-        elevation: 1
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+        elevation: 4,
     },
-    button:{
-        backgroundColor: "#141414",
-        padding: 10,
-        maring: 10,
+    button: {
+        alignItems: 'center',
+        backgroundColor: '#141414',
+        padding: 15,
+        paddingTop: 10,
+        paddingBottom: 10,
+        margin: 10,
+        marginBottom: 30,
+        borderRadius: 12,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
             height: 2,
         },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-
-        elevation: 1
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+        elevation: 4,
     },
-    buttonText:{
-        color: 'white'
+    buttonText: {
+        color: 'white',
+        fontWeight: '900'
     }
 })

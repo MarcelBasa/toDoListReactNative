@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native';
 
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 
-export default function ChosenTask({ navigation, GlobalState }){
+export default function ChosenTask({ navigation, GlobalState }) {
     const { chosenTask } = GlobalState;
 
     return (
@@ -13,9 +13,9 @@ export default function ChosenTask({ navigation, GlobalState }){
             <View style={styles.body}>
                 <Text>{chosenTask.task}</Text>
             </View>
-            <Footer navigation={navigation}/>
+            <Footer navigation={navigation} />
         </View>
-    );
+    )
 }
 
 const styles = StyleSheet.create({
@@ -25,10 +25,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    body:{
+    body: {
         flex: 8,
         width: '100%',
-        backgroundColor: '#14141405',
+        backgroundColor: '#14141410',
         alignItems: 'center',
         justifyContent: 'center'
     }
