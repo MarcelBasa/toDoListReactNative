@@ -25,7 +25,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
 
-        <Stack.Screen name="None" option={{headerShown: false}}>
+        <Stack.Screen name="Home" option={{headerShown: false}}>
           {props => <Home {...props} GlobalState={GlobalState} />}
         </Stack.Screen>
 
