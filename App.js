@@ -9,6 +9,7 @@ const Stack=createNativeStackNavigator();
 
 export default function App() {
   // GLOBALSTATE MANAGEMENT
+  
   const [toDoList, setToDoList] = useState([{id: 1, task: 'brush your teeth'}]);
   const [task, setTask] = useState('');
   const [chosenTask, setChosenTask] = useState('');
