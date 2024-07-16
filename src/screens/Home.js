@@ -5,7 +5,7 @@ import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 
 export default function Home({ navigation, GlobalState }) {
-    const { toDoList, setToDoList, task, setTask, setChosenTask } = GlobalState;
+    const { toDoList, setToDoList, task, setTask, setChosenTask, setEditTask } = GlobalState;
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
@@ -27,16 +27,16 @@ export default function Home({ navigation, GlobalState }) {
             <View style={{flexDirection: 'row', marginLeft: 5}}>
                     <View style={styles.inBoxButton}>
                         <Button 
-                        color="#000"
-                        title="Copy" 
-                        //onPress={() => handleCopyTask(item)}
+                            color="#000"
+                            title="Copy" 
+                            onPress={() => handleCopyTask(item)}
                         />
                     </View>
                     <View style={styles.inBoxButton}>
                         <Button 
-                        color="#000"
-                        title="Edit"  
-                        onPress={() => handleEditTask(item)}
+                            color="#000"
+                            title="Edit"  
+                            onPress={() => handleEditTask(item)}
                         />
                     </View>
                     <View style={styles.inBoxButton}>
@@ -56,16 +56,16 @@ export default function Home({ navigation, GlobalState }) {
     }
     
     const handleEditTask = (item) => {
-        
+        setEditTask(item);
+        setTask(item);
+        navigation.navigate('EditTask');
     };
 
-    const handleCopyTask = (task) => {
-        Alert.alert('Copied to clipboard');
+    const handleCopyTask = (item) => {
         return;
     };
 
     const handleSaveTask = () => {
-
         if(task !== ""){
             const index = toDoList.length + 1;
             setToDoList(prevState => [...prevState, { id: index, task: task }]);
