@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 
 export default function EditTask({ navigation, GlobalState }) {
-    const { toDoList, setToDoList, task, setTask, editTask } = GlobalState;
+    const { setToDoList, editTask, setEditTask } = GlobalState;
+    const [updatedTask, setUpdatedTask] = useState(editTask.task);
 
     const handleSaveEditTask = () => {
-        console.log(editTask);
-        if (task !== "") {
-            toDoList.find(task => task.id === editTask.id).task = task;
-            console.log(toDoList.find(task => task.id === editTask.id).id);
-            console.log(toDoList);
-            setToDoList(toDoList);
+        if (updatedTask !== "") {
+            setToDoList(prevState =>
+                prevState.map(task =>
+                    task.id === editTask.id ? { ...task, task: updatedTask } : task
+                )
+            );
+            setEditTask({ id: null, task: '' });
         }
         navigation.navigate('Home');
     }
@@ -24,8 +26,8 @@ export default function EditTask({ navigation, GlobalState }) {
             <View style={styles.body}>
                 <TextInput
                     style={styles.input}
-                    onChangeText={setTask}
-                    value={editTask.task}
+                    onChangeText={setUpdatedTask}
+                    value={updatedTask}
                 />
                 <TouchableOpacity 
                     style={styles.button}

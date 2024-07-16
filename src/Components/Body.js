@@ -14,7 +14,7 @@ export default function Body() {
   const [toDoList, setToDoList] = useState([{ id: 1, task: 'brush your teeth' }]);
   const [task, setTask] = useState('');
   const [chosenTask, setChosenTask] = useState('');
-  const [editTask, setEditTask] = useState('');
+  const [editTask, setEditTask] = useState({ id: null, task: '' });
 
   const GlobalState = {
     toDoList, setToDoList,

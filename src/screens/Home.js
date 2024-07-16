@@ -57,7 +57,6 @@ export default function Home({ navigation, GlobalState }) {
     
     const handleEditTask = (item) => {
         setEditTask(item);
-        setTask(item);
         navigation.navigate('EditTask');
     };
 
