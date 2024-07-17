@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Button, View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native';
+import * as Clipboard from 'expo-clipboard';
 
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
@@ -60,8 +61,8 @@ export default function Home({ navigation, GlobalState }) {
         navigation.navigate('EditTask');
     };
 
-    const handleCopyTask = (item) => {
-        return;
+    const handleCopyTask = async (item) => {
+        await Clipboard.setStringAsync(item.task)
     };
 
     const handleSaveTask = () => {
