@@ -17,7 +17,7 @@ Mobile Todo List App is a mobile application developed using React Native. The a
 ## Installation
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/mobile-todo-list-app.git
+    git clone https://github.com/MarcelBasa/toDoListReactNative.git
     ```
 2. Navigate to the project directory:
     ```sh
@@ -29,7 +29,7 @@ Mobile Todo List App is a mobile application developed using React Native. The a
     ```
 4. Start the application:
     ```sh
-    expo start
+    npx expo start
     ```
 5. Follow the instructions in the terminal to run the app on an emulator or a physical device.
 
