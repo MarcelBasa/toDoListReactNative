@@ -4,6 +4,7 @@ Mobile Todo List App is a mobile application developed using React Native. The a
 
 ## Features
 - Add new todo entries
+- View existing todo entries
 - Copy existing todo entries
 - Search through todo entries
 - Edit existing todo entries
