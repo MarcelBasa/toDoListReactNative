@@ -12,5 +12,5 @@ export default function App() {
     }, 0);
   });
 
-  return (<>{isShowSplash ? ( <SplashScreen/> ) : ( <Body /> )}</>);
+  return (<>{isShowSplash ? ( <SplashScreen /> ) : ( <Body /> )}</>);
 }
