@@ -4,7 +4,6 @@ import SplashScreen from './splashScreenView';
 import Body from './src/Components/Body'
 
 export default function App() {
-  // SplashScreen
   const [isShowSplash, setIsShowSplash] = useState(true);
   useEffect(() => {
     setTimeout(() => {

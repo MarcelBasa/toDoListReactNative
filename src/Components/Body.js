@@ -10,7 +10,6 @@ import EditTask from '../screens/EditTask';
 const Stack = createNativeStackNavigator();
 
 export default function Body() {
-  // globalstate management
   const [toDoList, setToDoList] = useState([{ id: 1, task: 'brush your teeth' }]);
   const [task, setTask] = useState('');
   const [chosenTask, setChosenTask] = useState('');
@@ -22,8 +21,7 @@ export default function Body() {
     chosenTask, setChosenTask,
     editTask, setEditTask
   }
-  
-  // navigation
+ 
   return (
     <NavigationContainer>
       <StatusBar disabled={true} />
