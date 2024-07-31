@@ -22,7 +22,7 @@ Mobile Todo List App is a mobile application developed using React Native. The a
     ```
 2. Navigate to the project directory:
     ```sh
-    cd mobile-todo-list-app
+    cd toDoListReactNative
     ```
 3. Install dependencies:
     ```sh
