@@ -11,9 +11,9 @@ Mobile Todo List App is a mobile application developed using React Native. The a
 - Delete todo entries
 
 ## Technologies
-- **React Native**: Framework for building native mobile apps using JavaScript and React
-- **JavaScript (JS)**: Programming language for the app logic
-- **Expo**: Toolchain for developing, building, and deploying React Native apps
+- **React Native**
+- **JavaScript**
+- **Expo**
 
 ## Installation
 1. Clone the repository:
